@@ -1,12 +1,14 @@
 import { Button, Container, Nav, Navbar as NavbarBs } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { useShoppingCart } from "../context/ShoppingCartContext";
+import { useAuth } from "../context/AuthContext";
 export function Navbar() {
+	const { isLoggedIn } = useAuth();
 	const { cartQuantity, openCart, closeCart } = useShoppingCart();
 	return (
 		<NavbarBs sticky="top" className="bg-white shadow-sm mb-3">
 			<Container>
-				<Nav className="me-auto">
+				<Nav className="">
 					<Nav.Link as={NavLink} to="/">
 						Home
 					</Nav.Link>
@@ -16,9 +18,15 @@ export function Navbar() {
 					<Nav.Link as={NavLink} to="/about">
 						About
 					</Nav.Link>
-					<Nav.Link as={NavLink} to="/login">
-						login
-					</Nav.Link>
+					{isLoggedIn ? (
+						<Nav.Link as={NavLink} to="/profile">
+							Profile
+						</Nav.Link>
+					) : (
+						<Nav.Link as={NavLink} to="/login" className="float-end">
+							login
+						</Nav.Link>
+					)}
 				</Nav>
 				{cartQuantity > 0 && (
 					<Button
