@@ -1,26 +1,26 @@
 [
     {
       "id": 1,
-      "name": "Book",
+      "name": "Kross",
       "price": 10.99,
-      "imgUrl": "/imgs/book.jpg"
+      "imgUrl": "/imgs/bike1.jpg"
     },
     {
       "id": 2,
-      "name": "Computer",
+      "name": "Romet",
       "price": 1199,
-      "imgUrl": "/imgs/computer.jpg"
+      "imgUrl": "/imgs/bike2.jpg"
     },
     {
       "id": 3,
-      "name": "Banana",
+      "name": "Maxis",
       "price": 1.05,
-      "imgUrl": "/imgs/banana.jpg"
+      "imgUrl": "/imgs/bike3.jpg"
     },
     {
       "id": 4,
-      "name": "Car",
+      "name": "badass",
       "price": 14000,
-      "imgUrl": "/imgs/car.jpg"
+      "imgUrl": "/imgs/bike4.jpg"
     }
   ]
