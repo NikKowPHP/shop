@@ -1,4 +1,12 @@
-import { Button, Container, Nav, Navbar as NavbarBs } from "react-bootstrap";
+import {
+	Button,
+	Container,
+	Form,
+	Nav,
+	NavbarBrand,
+	Navbar as NavbarBs,
+	NavbarCollapse,
+} from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { useShoppingCart } from "../context/ShoppingCartContext";
 import { useAuth } from "../context/AuthContext";
@@ -6,78 +14,91 @@ export function Navbar() {
 	const { isLoggedIn } = useAuth();
 	const { cartQuantity, openCart, closeCart } = useShoppingCart();
 	return (
-		<NavbarBs sticky="top" className="bg-white shadow-sm mb-3">
-			<Container>
-				<Nav className="">
-					<Nav.Link as={NavLink} to="/">
-						Home
-					</Nav.Link>
-					<Nav.Link as={NavLink} to="/store">
-						Store
-					</Nav.Link>
-					<Nav.Link as={NavLink} to="/about">
-						About
-					</Nav.Link>
-					{isLoggedIn ? (
-						<Nav.Link as={NavLink} to="/profile">
-							Profile
+		<NavbarBs  className="bg-white shadow-sm mb-3">
+			<Container fluid>
+				<NavbarCollapse id="navbarCollapse">
+					<Nav className="">
+						<NavbarBrand href="#">True.Bike</NavbarBrand>
+
+						<Nav.Link as={NavLink} to="/">
+							Home
 						</Nav.Link>
-					) : (
-						<Nav.Link as={NavLink} to="/login" className="float-end">
-							login
+						<Nav.Link as={NavLink} to="/store">
+							Store
 						</Nav.Link>
-					)}
-				</Nav>
-				{cartQuantity > 0 && (
-					<Button
-						style={{ width: "3rem", height: "3rem", position: "relative" }}
-						variant="outline-primary"
-						className="rounded-circle"
-						onClick={openCart}
-					>
-						<svg
-							fill="#000000"
-							version="1.1"
-							id="Capa_1"
-							xmlns="http://www.w3.org/2000/svg"
-							xmlnsXlink="http://www.w3.org/1999/xlink"
-							viewBox="0 0 902.86 902.86"
-							xmlSpace="preserve"
+						<Nav.Link as={NavLink} to="/about">
+							About
+						</Nav.Link>
+						{isLoggedIn ? (
+							<Nav.Link as={NavLink} to="/profile">
+								Profile
+							</Nav.Link>
+						) : (
+							<Nav.Link as={NavLink} to="/login" className="float-end">
+								login
+							</Nav.Link>
+						)}
+					</Nav>
+					<Form className="d-flex">
+            <Form.Control
+              type="search"
+              placeholder="Search"
+              className="me-2"
+              aria-label="Search"
+            />
+            <Button variant="outline-success">Search</Button>
+          </Form>
+					{cartQuantity > 0 && (
+						<Button
+							style={{ width: "3rem", height: "3rem", position: "relative" }}
+							variant="outline-primary"
+							className="rounded-circle"
+							onClick={openCart}
 						>
-							<g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
-							<g
-								id="SVGRepo_tracerCarrier"
-								strokeLinecap="round"
-								strokeLinejoin="round"
-							></g>
-							<g id="SVGRepo_iconCarrier">
-								{" "}
-								<g>
+							<svg
+								fill="#000000"
+								version="1.1"
+								id="Capa_1"
+								xmlns="http://www.w3.org/2000/svg"
+								xmlnsXlink="http://www.w3.org/1999/xlink"
+								viewBox="0 0 902.86 902.86"
+								xmlSpace="preserve"
+							>
+								<g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+								<g
+									id="SVGRepo_tracerCarrier"
+									strokeLinecap="round"
+									strokeLinejoin="round"
+								></g>
+								<g id="SVGRepo_iconCarrier">
 									{" "}
 									<g>
 										{" "}
-										<path d="M671.504,577.829l110.485-432.609H902.86v-68H729.174L703.128,179.2L0,178.697l74.753,399.129h596.751V577.829z M685.766,247.188l-67.077,262.64H131.199L81.928,246.756L685.766,247.188z"></path>{" "}
-										<path d="M578.418,825.641c59.961,0,108.743-48.783,108.743-108.744s-48.782-108.742-108.743-108.742H168.717 c-59.961,0-108.744,48.781-108.744,108.742s48.782,108.744,108.744,108.744c59.962,0,108.743-48.783,108.743-108.744 c0-14.4-2.821-28.152-7.927-40.742h208.069c-5.107,12.59-7.928,26.342-7.928,40.742 C469.675,776.858,518.457,825.641,578.418,825.641z M209.46,716.897c0,22.467-18.277,40.744-40.743,40.744 c-22.466,0-40.744-18.277-40.744-40.744c0-22.465,18.277-40.742,40.744-40.742C191.183,676.155,209.46,694.432,209.46,716.897z M619.162,716.897c0,22.467-18.277,40.744-40.743,40.744s-40.743-18.277-40.743-40.744c0-22.465,18.277-40.742,40.743-40.742 S619.162,694.432,619.162,716.897z"></path>{" "}
+										<g>
+											{" "}
+											<path d="M671.504,577.829l110.485-432.609H902.86v-68H729.174L703.128,179.2L0,178.697l74.753,399.129h596.751V577.829z M685.766,247.188l-67.077,262.64H131.199L81.928,246.756L685.766,247.188z"></path>{" "}
+											<path d="M578.418,825.641c59.961,0,108.743-48.783,108.743-108.744s-48.782-108.742-108.743-108.742H168.717 c-59.961,0-108.744,48.781-108.744,108.742s48.782,108.744,108.744,108.744c59.962,0,108.743-48.783,108.743-108.744 c0-14.4-2.821-28.152-7.927-40.742h208.069c-5.107,12.59-7.928,26.342-7.928,40.742 C469.675,776.858,518.457,825.641,578.418,825.641z M209.46,716.897c0,22.467-18.277,40.744-40.743,40.744 c-22.466,0-40.744-18.277-40.744-40.744c0-22.465,18.277-40.742,40.744-40.742C191.183,676.155,209.46,694.432,209.46,716.897z M619.162,716.897c0,22.467-18.277,40.744-40.743,40.744s-40.743-18.277-40.743-40.744c0-22.465,18.277-40.742,40.743-40.742 S619.162,694.432,619.162,716.897z"></path>{" "}
+										</g>{" "}
 									</g>{" "}
-								</g>{" "}
-							</g>
-						</svg>
-						<div
-							className="rounded-circle bg-danger d-flex justify-content-center align-items-center"
-							style={{
-								color: "white",
-								width: "1.5rem",
-								height: "1.5rem",
-								position: "absolute",
-								bottom: 0,
-								right: 0,
-								transform: "translate(25%, 25%)",
-							}}
-						>
-							{cartQuantity}
-						</div>
-					</Button>
-				)}
+								</g>
+							</svg>
+							<div
+								className="rounded-circle bg-danger d-flex justify-content-center align-items-center"
+								style={{
+									color: "white",
+									width: "1.5rem",
+									height: "1.5rem",
+									position: "absolute",
+									bottom: 0,
+									right: 0,
+									transform: "translate(25%, 25%)",
+								}}
+							>
+								{cartQuantity}
+							</div>
+						</Button>
+					)}
+				</NavbarCollapse>
 			</Container>
 		</NavbarBs>
 	);
