@@ -14,7 +14,7 @@ const ProductContext = createContext<ProductContextProps | undefined>(
   undefined
 );
 
-export function ProductProvider({ children }) {
+export  const ProductProvider: React.FC <{ children: React.ReactNode}> = ({ children }) => {
   const [products, setProducts] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
@@ -38,7 +38,7 @@ export function ProductProvider({ children }) {
     </ProductContext.Provider>
   );
 }
-export function useProductContext  () {
+export const useProductContext  = (): ProductContextProps => {
     const context = useContext(ProductContext);
     if(!context) {
         throw new Error('use product context must be used within a productProvider')
