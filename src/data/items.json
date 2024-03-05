@@ -3,19 +3,19 @@
       "id": 1,
       "name": "Kross",
       "price": 10.99,
-      "imgUrl": "/imgs/bike1.jpg"
+      "imgUrl": "/imgs/bike11.jpg"
     },
     {
       "id": 2,
       "name": "Romet",
       "price": 1199,
-      "imgUrl": "/imgs/bike2.jpg"
+      "imgUrl": "/imgs/bike22.jpg"
     },
     {
       "id": 3,
       "name": "Maxis",
       "price": 1.05,
-      "imgUrl": "/imgs/bike3.jpg"
+      "imgUrl": "/imgs/bike32.jpg"
     },
     {
       "id": 4,
