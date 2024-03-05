@@ -12,41 +12,44 @@ import { Login } from "./components/Login";
 import { Forgot } from "./components/Forgot";
 import { Profile } from "./pages/Profile";
 import { UpdateProfile } from "./pages/UpdateProfile";
+import { ProductProvider } from "./context/ProductContext";
 
 function App() {
-	return (
-		<AuthProvider>
-			<ShoppingCartProvider>
-				<Navbar />
-				<Container className="mb-4">
-					<Routes>
-						<Route path="/" element={<Home />} />
-						<Route path="/store" element={<Store />} />
-						<Route path="/about" element={<About />} />
-							<Route path="/signup" element={<Signup />} />
-							<Route path="/login" element={<Login />} />
-							<Route path="/forgot-password" element={<Forgot/>} />
-							<Route
-								path="/profile"
-								element={
-									<AuthMiddleware>
-										<Profile />
-									</AuthMiddleware>
-								}
-							/>
-							<Route
-								path="/update-profile"
-								element={
-									<AuthMiddleware>
-										<UpdateProfile/>
-									</AuthMiddleware>
-								}
-							/>
-					</Routes>
-				</Container>
-			</ShoppingCartProvider>
-		</AuthProvider>
-	);
+  return (
+    <AuthProvider>
+      <ProductProvider>
+        <ShoppingCartProvider>
+          <Navbar />
+          <Container className="mb-4">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/store" element={<Store />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/signup" element={<Signup />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/forgot-password" element={<Forgot />} />
+              <Route
+                path="/profile"
+                element={
+                  <AuthMiddleware>
+                    <Profile />
+                  </AuthMiddleware>
+                }
+              />
+              <Route
+                path="/update-profile"
+                element={
+                  <AuthMiddleware>
+                    <UpdateProfile />
+                  </AuthMiddleware>
+                }
+              />
+            </Routes>
+          </Container>
+        </ShoppingCartProvider>
+      </ProductProvider>
+    </AuthProvider>
+  );
 }
 
 export default App;
